@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Roboto Mono", monospace;
+}
+
+body {
+    background-color: #1d1f21;
+}
+
+a {
+    text-decoration: none;
+}
+
+.card {
+    transition: .2s ease background;
+}
+
+#global-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #ffffff;
+    margin: 1.5em 0em .5em 0em;
+}
+
+#logo {
+    width: auto;
+    height: 6rem;
+    transition: .5s ease;
+}
+
+#logo.inverted, #logo:hover {
+    filter: invert(100%);
+}
+
+#logo.inverted:hover {
+    filter: invert(0%);
+}
+
+.card.borderless {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+#stage {
+    margin-top: 50px;
+}
+
+#reset-button-card {
+    flex: 0 1 0%;
+    text-align: center;
+}
+
+#reset-button-text.glow {
+    color: #ff6666;
+}
+
+#mine-counter-card {
+    flex: 0 1 0%;
+}
+
+#helptext-card {
+    margin: 0;
+    padding: 0;
+}
+
+.grid-row {
+    display: block;
+    height: 36px;
+}
+
+.grid-cell {
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    margin: 2px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 32px;
+    background: #ffffff;
+    transition: .3s ease-out background;
+}
+
+.grid-cell:hover {
+    background: #cccccc;
+}
+
+.grid-cell.revealed {
+    background: #aaaaaa;
+}
+
+.grid-cell.revealed:hover {
+    background: #bbbbbb;
+}
+
+.grid-cell.flagged {
+    background: #66ff99;
+}
+
+.grid-cell.flagged:hover {
+    background: #66ff66;
+}
+
+.grid-cell-mine.revealed {
+    background: #ff6666;
+}
+
+.grid-cell-mine.revealed:hover {
+    background: #ff0000;
+}
+
+@media only screen and (max-width: 600px) {
+    #logo-container {
+        font-size: 2rem;
+        margin: 1em 0em .5em 0em;
+    }
+}
+
