@@ -66,8 +66,12 @@ a {
     text-align: center;
 }
 
-#reset-button-text.glow {
+#reset-button-text.glow-red {
     color: #ff6666;
+}
+
+#reset-button-text.glow-green {
+    color: #66ff99;
 }
 
 #mine-counter-card {

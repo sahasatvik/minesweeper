@@ -45,7 +45,8 @@ function initBoard(m, n) {
         cellGrid.push(cellGridRow);
     }
     cells = document.getElementsByClassName('grid-cell');
-    document.getElementById('reset-button-text').classList.remove('glow');
+    document.getElementById('reset-button-text').classList.remove('glow-red');
+    document.getElementById('reset-button-text').classList.remove('glow-green');
     document.getElementById('mine-counter-text').innerHTML = mines.length;
     dim = [m, n];
 }
@@ -99,8 +100,8 @@ function checkWin() {
             cell = cellGrid[i][j];
             if ((cell.classList.contains('flagged') &&
                 cell.getAttribute('mine') == 'false') ||
-                (!cell.classList.contains('revealed') &&
-                cell.getAttribute('mine') == 'false')) {
+                (!cell.classList.contains('flagged') &&
+                cell.getAttribute('mine') == 'true')) {
                 return;
             }
         }
@@ -113,7 +114,7 @@ function checkWin() {
     for (var i = 0; i < mines.length; i++) {
         mines[i].innerHTML = '*';
     }
-    alert('You win!');
+    document.getElementById('reset-button-text').classList.add('glow-green');
 }
 
 function lose() {
@@ -126,5 +127,5 @@ function lose() {
             cellGrid[i][j].onclick = '';
         }
     }
-    document.getElementById('reset-button-text').classList.add('glow');
+    document.getElementById('reset-button-text').classList.add('glow-red');
 }
