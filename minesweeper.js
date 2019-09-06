@@ -31,6 +31,15 @@ function initBoard(m, n) {
                 cellClick(e.target);
                 checkWin();
             };
+            var longpress = document.createAttribute('data-long-press-delay');
+            longpress.value = 500;
+            cell.setAttributeNode(longpress);
+            cell.addEventListener('long-press', (e) => {
+                if (!e.target.classList.contains('revealed')) {
+                    e.target.classList.toggle('flagged');
+                    checkWin();
+                }
+            });
             var mine = document.createAttribute('mine');
             mine.value = (Math.random() < 0.1);
             if (mine.value == 'true') {
@@ -52,11 +61,11 @@ function initBoard(m, n) {
 }
 
 function cellClick(cell) {
-    if (cell.getAttribute('mine') == 'true') {
-        lose();
+    if (cell.classList.contains('flagged')) {
         return;
     }
-    if (cell.classList.contains('flagged')) {
+    if (cell.getAttribute('mine') == 'true') {
+        lose();
         return;
     }
     cell.classList.add('revealed');
