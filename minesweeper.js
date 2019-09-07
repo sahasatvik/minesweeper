@@ -113,6 +113,8 @@ function checkWin() {
             cell = cellGrid[i][j];
             if ((cell.classList.contains('flagged') &&
                 cell.getAttribute('mine') == 'false') ||
+                (!cell.classList.contains('revealed') &&
+                cell.getAttribute('mine') == 'false') ||
                 (!cell.classList.contains('flagged') &&
                 cell.getAttribute('mine') == 'true')) {
                 return;
