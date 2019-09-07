@@ -112,11 +112,11 @@ a {
     background: #bbbbbb;
 }
 
-.grid-cell.flagged {
+.grid-cell.flagged, .grid-cell-mine.flagged.revealed {
     background: #66ff99;
 }
 
-.grid-cell.flagged:hover {
+.grid-cell.flagged:hover, .grid-cell-mine.flagged.revealed:hover {
     background: #66ff66;
 }
 

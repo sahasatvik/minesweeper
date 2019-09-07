@@ -22,24 +22,11 @@ function initBoard(m, n) {
             col_num.value = j;
             cell.setAttributeNode(row_num);
             cell.setAttributeNode(col_num);
-            cell.onclick = (e) => {
-                if (e.altKey && !e.target.classList.contains('revealed')) {
-                    e.target.classList.toggle('flagged');
-                    checkWin();
-                    return;
-                }
-                cellClick(e.target);
-                checkWin();
-            };
+            cell.addEventListener('click', clickEventListener);
             var longpress = document.createAttribute('data-long-press-delay');
             longpress.value = 500;
             cell.setAttributeNode(longpress);
-            cell.addEventListener('long-press', (e) => {
-                if (!e.target.classList.contains('revealed')) {
-                    e.target.classList.toggle('flagged');
-                    checkWin();
-                }
-            });
+            cell.addEventListener('long-press', longPressEventListener);
             var mine = document.createAttribute('mine');
             mine.value = (Math.random() < 0.1);
             if (mine.value == 'true') {
@@ -58,6 +45,22 @@ function initBoard(m, n) {
     document.getElementById('reset-button-text').classList.remove('glow-green');
     document.getElementById('mine-counter-text').innerHTML = mines.length;
     dim = [m, n];
+}
+
+function clickEventListener(e) {
+    if (e.altKey && !e.target.classList.contains('revealed')) {
+        e.target.classList.toggle('flagged');
+    } else {
+        cellClick(e.target);
+    }
+    checkWin();
+}
+
+function longPressEventListener(e) {
+    if (!e.target.classList.contains('revealed')) {
+        e.target.classList.toggle('flagged');
+        checkWin();
+    }
 }
 
 function cellClick(cell) {
@@ -115,11 +118,11 @@ function checkWin() {
             }
         }
     }
-    for (var i = 0; i < dim[0]; i++) {
-        for (var j = 0; j < dim[1]; j++) {
-            cellGrid[i][j].onclick = '';
-        }
-    }
+    win();
+}
+
+function win() {
+    makeAllUnclickable();
     for (var i = 0; i < mines.length; i++) {
         mines[i].innerHTML = '*';
     }
@@ -127,14 +130,19 @@ function checkWin() {
 }
 
 function lose() {
+    makeAllUnclickable();
     for (var i = 0; i < mines.length; i++) {
         mines[i].classList.add('revealed');
         mines[i].innerHTML = '*';
     }
+    document.getElementById('reset-button-text').classList.add('glow-red');
+}
+
+function makeAllUnclickable() {
     for (var i = 0; i < dim[0]; i++) {
         for (var j = 0; j < dim[1]; j++) {
-            cellGrid[i][j].onclick = '';
+            cellGrid[i][j].removeEventListener('click', clickEventListener);
+            cellGrid[i][j].removeEventListener('long-press', longPressEventListener);
         }
     }
-    document.getElementById('reset-button-text').classList.add('glow-red');
 }
