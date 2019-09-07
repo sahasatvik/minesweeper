@@ -18,6 +18,10 @@ a {
     transition: .2s ease background;
 }
 
+.unselectable {
+    user-select: none;
+}
+
 #global-container {
     width: 100%;
     height: auto;

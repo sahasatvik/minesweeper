@@ -34,6 +34,7 @@ function initBoard(m, n) {
                 mines.push(cell);
             }
             cell.setAttributeNode(mine);
+            cell.classList.add('unselectable');
             row.appendChild(cell);
             cellGridRow.push(cell);
         }
