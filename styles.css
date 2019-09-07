@@ -58,7 +58,8 @@ a {
 }
 
 #stage {
-    margin-top: 50px;
+    align-content: center;
+    margin-top: 64px;
 }
 
 #reset-button-card {
@@ -84,7 +85,7 @@ a {
 }
 
 .grid-row {
-    display: block;
+    text-align: center;
     height: 36px;
 }
 

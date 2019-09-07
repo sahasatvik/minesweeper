@@ -27,8 +27,8 @@
         </div>
         <div id="stage">
             <div id="grid"></div>
-            <div class="card-container">
-                <div id="reset-button-card" class="card borderless" onclick="initBoard(8, 16)">
+            <div id="grid-info" class="card-container">
+                <div id="reset-button-card" class="card borderless" onclick="resetBoard()">
                     <div id="reset-button-text" class="card-title">
                         Reset
                     </div>
@@ -87,7 +87,13 @@
             } catch (err) {}
         }
         refreshTheme();
-        initBoard(8, 16);
+
+        var r = Math.min(Math.floor(screen.height * 0.8 / 36), 12);
+        var c = Math.min(Math.floor(screen.width * 0.8 / 36), 16);
+        function resetBoard() {
+            initBoard(r, c);
+        }
+        resetBoard();
     </script>
 </body>
 </html>
