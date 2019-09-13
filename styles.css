@@ -56,11 +56,6 @@ a {
     filter: invert(0%);
 }
 
-.card.borderless {
-    border: none;
-    background-color: rgba(0, 0, 0, 0);
-}
-
 #stage {
     align-content: center;
     margin-top: 64px;
