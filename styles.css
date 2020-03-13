@@ -62,8 +62,7 @@ a {
 }
 
 #reset-button-card {
-    flex: 0 1 0%;
-    text-align: center;
+    grid-column: 6;
 }
 
 #reset-button-text.glow-red {
@@ -75,7 +74,7 @@ a {
 }
 
 #mine-counter-card {
-    flex: 0 1 0%;
+    grid-column: 7;
 }
 
 #helptext-card {
