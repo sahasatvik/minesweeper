@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="author" content="Satvik Saha">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Minesweeper">
+    <meta name="description" content="A simple game of minesweeper">
     
     <title>Minesweeper</title>
 
@@ -19,7 +19,7 @@
     <script src="long-press-event.min.js"></script>
     <script src="minesweeper.js"></script>
 </head>
-<body>
+<body class="dark-theme">
     <div id="global-container">
         <div id="logo-container">
             <img id="logo" src="https://sahasatvik.github.io/logo_alpha.svg" alt="" onmouseup="toggleTheme()"/>
@@ -48,8 +48,6 @@
         </div>
     </div>
     <script type="text/javascript" charset="utf-8">
-
-        var x = document.getElementsByClassName("card");
         var light;
         
         try {
@@ -60,20 +58,12 @@
         }
         
         function lightTheme() {
-            document.getElementById("logo").classList.add("inverted");
-            for (var i = 0; i < x.length; i++) {
-                x[i].classList.remove("card-dark");
-            }
-            document.body.style.backgroundColor = "#f2f2f2";
-            document.getElementById("minesweeper").style.color = "#1d1f21";
+            document.body.classList.remove("dark-theme");
+            document.body.classList.add("light-theme");
         }
         function darkTheme() {
-            document.getElementById("logo").classList.remove("inverted");
-            for (var i = 0; i < x.length; i++) {
-                x[i].classList.add("card-dark");
-            }
-            document.body.style.backgroundColor = "#1d1f21";
-            document.getElementById("minesweeper").style.color = "#ffffff";
+            document.body.classList.remove("light-theme");
+            document.body.classList.add("dark-theme");
         }
         function toggleTheme() {
             light = !light;
@@ -86,6 +76,7 @@
                 localStorage.setItem("light", JSON.stringify(light));
             } catch (err) {}
         }
+        
         refreshTheme();
 
         var r = Math.min(Math.floor(screen.height * 0.8 / 36), 12);
