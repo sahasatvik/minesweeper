@@ -44,7 +44,7 @@ function initBoard(m, n) {
     cells = document.getElementsByClassName('grid-cell');
     document.getElementById('reset-button-text').classList.remove('glow-red');
     document.getElementById('reset-button-text').classList.remove('glow-green');
-    document.getElementById('mine-counter-text').innerHTML = mines.length;
+    document.getElementById('mine-counter-text').innerHTML = mines.length + ' mines';
     dim = [m, n];
 }
 

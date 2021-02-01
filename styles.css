@@ -32,6 +32,7 @@ a {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    padding-bottom: 4em;
 }
 
 #minesweeper {
@@ -76,9 +77,11 @@ a {
 }
 
 #reset-button-card {
-    grid-column: 6;
+    grid-column: 1 / 7;
 }
-
+#reset-button-text {
+    text-align: right;
+}
 #reset-button-text.glow-red {
     color: #ff6666;
 }
@@ -88,7 +91,7 @@ a {
 }
 
 #mine-counter-card {
-    grid-column: 7;
+    grid-column: 7 / 13;
 }
 
 #helptext-card {
@@ -110,7 +113,11 @@ a {
     vertical-align: middle;
     line-height: 32px;
     background: #ffffff;
-    transition: .3s ease-out background;
+    transition: .2s ease-out background;
+}
+
+.light-theme .grid-cell {
+    outline: 1px solid #bbbbbb;
 }
 
 .grid-cell:hover {
