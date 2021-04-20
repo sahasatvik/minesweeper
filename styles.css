@@ -72,7 +72,6 @@ a {
 }
 
 #stage {
-    font-family: "Fira Mono", monospace;
     align-content: center;
     margin-top: 64px;
 }
@@ -107,6 +106,7 @@ a {
 
 .grid-cell {
     display: inline-block;
+    font-family: "Fira Mono", monospace;
     height: 32px;
     width: 32px;
     margin: 2px;
